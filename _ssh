@@ -1,0 +1,1 @@
+ssh qa@${1}64vm${2}.rofa.tibco.com
