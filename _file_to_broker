@@ -1,0 +1,13 @@
+echo "Path: ${1}"
+file=$(basename "${1}")
+echo "File name: $file"
+machine="${2}64vm${3}.rofa.tibco.com"
+echo "Broker Location: @$machine"
+gridlib="/opt/qa/fabric/webapps/livecluster/deploy/resources/gridlib/"
+echo "-------------------------------------"
+ssh qa@$machine "cd $gridlib;rm $file; ls"
+echo "-------------------------------------"
+scp ${1} qa@$machine:$gridlib/$file
+ssh qa@$machine "cd $gridlib; ls"
+echo "----------Process done --------------"
+
